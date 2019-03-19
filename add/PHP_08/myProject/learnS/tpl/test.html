@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h3>变量的输出</h3>
+	{$name}
+	<h3>smarty注释</h3>
+	{*$name*}
+	<h3>数组的输出</h3>
+	<em>1.</em><span>{$arr['language']}</span>
+	<em>2.</em><span>{$arr.version}</span>
+	<h3>变量调节器</h3>
+	<ul>
+		<li>
+			<a href="">capitalize 首字母大写</a>
+			<span>{$str|capitalize}</span>
+		</li>
+		<li>
+			<a href="">cat 字符串拼接</a>
+			<span>{$name|cat:" is the best language in the world"}</span>
+		</li>
+		<li>
+			<a href="">date_format 日期格式化</a>
+			<span>{$time|date_format:"%A %B-%d-%Y %H:%M:%S"}</span>
+		</li>
+		<li>
+			<a href="">default 给未赋值或者值为空的变量设置默认值,如果变量有值的时候，使用变量设置的值而非默认值</a>
+			<span>{$age|default:'18'}</span>
+		</li>
+		<li>
+			<a href="">escape url转码</a>
+			<span>{$url|escape:'url'}</span>
+			{*在程序中，url中的很多特殊符号（比如：？ / ''等）会影响到脚本语言的正常执行*}
+		</li>
+		<li>
+			<a href="">upper 大写</a>
+			{$Blessing|upper}
+		</li>
+		<li>
+			<a href="">nl2br 换行转换成br标签</a>
+			<p>{$poetry|nl2br}</p>
+		</li>
+
+
+	</ul>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	{include file="header.html" name="php的学习"}
+	<!-- {section name=student loop=$students}
+		<div></div>
+	{/section} -->
+	<table border="1">
+		{section name=student loop=$students step=-1 max=4}
+		<tr>
+			<td>{$students[student].name}</td>
+			<td>{$students[student].age}</td>
+			<td>{$students[student].sex}</td>
+		</tr>
+		{/section}
+	</table>
+
+	<table>
+		{foreach $students as $student}
+		<tr>
+			{foreach $student as $item}
+			<td>{$item}</td>
+			{/foreach}
+		</tr>
+		{/foreach}
+	</table>
+	{$myobj -> name}
+	{$myobj -> meth2("这是smarty模板输出的对象信息")}
+	{$myobj -> meth3(array("php",'java'))}
+
+</body>
+<script>
+	// array(
+	// 		array("name"=>'Mary','sex'=>'gril','age'=>20),
+	// 		array('name'=>'jack','sex'=>'boy','age'=>21),
+	// 		array('name'=>'tom','sex'=>'boy','age'=>19)
+	// 	)
+
+</script>
+</html>

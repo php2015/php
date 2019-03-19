@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.wrapper{
+			width:650px;
+			border:2px #ccc solid;
+			margin:0 auto;
+			padding:10px;
+		}
+		h2{
+			text-align: center;
+		}
+		span{
+			display: inline-block;
+			width:100px;
+		}
+		ul{
+			margin:0;
+			padding:0;
+			list-style: none;
+		}
+		form{
+			width:650px;
+			margin: 10px auto 200px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="header">
+			<h2>热门电影排行</h2>
+			<span>序号</span>
+			<span>片名</span>
+			<span>类型</span>
+			<span>地区</span>
+			<span>年份</span>
+		</div>
+		<ul id="list">
+		</ul>
+	</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+	$(function(){
+		$.ajax({
+			url:"test.php",
+			type:"GET",
+			async:false,
+			success:function(res){
+				var data = JSON.parse(res);
+				var html = '';
+				for (var i = 0; i < data.length; i++) {
+					html += "<li>"+
+						"<span>"+data[i].id+"</span>"+
+						"<span>"+data[i].name+"</span>"+
+						"<span>"+data[i].type+"</span>"+
+						"<span>"+data[i].area+"</span>"+
+						"<span>"+data[i].year+"</span>"+
+						"<span>"+
+							'<a href="" target="_blank">编辑</a>'+
+							'<a href="" target="_blank">删除</a>'+
+						"</span>"+
+					"<li>";
+				}
+
+				$("#list").html(html);
+			},
+			error:function(res){
+
+			}
+		})
+	})
+</script>
+</html>

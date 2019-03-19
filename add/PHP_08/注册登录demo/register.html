@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.form{
+			width:320px;
+			height: 340px;
+			border:1px #ccc solid;
+			margin:20px auto;
+			padding:20px;
+			background: #efefef;
+		}
+		.group{
+			height: 50px;
+			margin-bottom: 10px;
+		}
+		label{
+			display: inline-block;
+			width:100px;
+			text-align: right;
+			font-family: "楷体";
+			font-size: 22px;
+			line-height: 27px;
+		}
+		input{
+			display: inline-block;
+			border-radius: 4px;
+			border:1px #ccc solid;
+			outline: none;
+			padding:4px 5px;
+			margin-left: 10px;
+			height: 17px;
+		}
+		a{
+			text-decoration: none;
+			text-align:center;
+			display: inline-block;
+			width:120px;
+			height: 30px;
+			background: green;
+			color:#fff;
+			line-height: 30px;
+			margin-left: 116px;
+			border-radius: 4px;
+		}
+	</style>
+</head>
+<body>
+	<div class="form">
+		<div class="group">
+			<label for="user">用户名</label>
+			<input type="text" id="user" name="username">
+		</div>
+		<div class="group">
+			<label for="mainPass">密码</label>
+			<input type="password" id="mainPass" name="mainPass">
+		</div>
+		<div class="group">
+			<label for="confirmPass">确认密码</label>
+			<input type="password" id="confirmPass" name="confirmPass">
+		</div>
+		<div class="group">
+			<label for="email">邮箱</label>
+			<input type="email" id="email" name="email">
+		</div>
+		<a href="#" id="btn">立即注册</a>
+	</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+	$('#btn').click(function(){
+		var username = $('#user').val();
+		var password = $('#mainPass').val();
+		var confirmPass = $('#confirmPass').val();
+		var email = $('#email').val();
+		if(!username || !password || !confirmPass || !email){
+			alert("请补充完整信息");
+			return 
+		}else{
+			if(password == confirmPass){
+				//可以注册
+				$.ajax({
+					url:"reg.php",
+					type:"POST",
+					async:false,
+					data:{
+						username:username,
+						password:password,
+						email:email
+					},
+					success:function(res){
+						if(res == 0){
+							alert("注册成功");
+						}else{
+							alert("注册失败");
+						}
+						window.location.href = "login.html";
+					},
+					error:function(res){
+
+					}
+				})
+			}else{
+				alert("两次输入的密码不一致，请确认");
+			}
+		}
+	})
+</script>
+</html>

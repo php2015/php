@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="box">
+		用户名：<input type="text" id="username">
+		密码: <input type="password" id="password">
+		<a href="#" id="btn">登录</a>
+	</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+	$('#btn').click(function(){
+		$.ajax({
+			url:'ajax.php',
+			type: 'POST',
+			data:{
+				username:'zhangsan',
+				password:'123'
+			},
+			async:false,
+			success:function(res){
+				//后台返回给我们的数据一般是json串形式，那我们在使用时，需要把json串转换为json对象
+				var data = JSON.parse(res);
+				console.log(data.name);			
+			},
+			error:function(res){
+				console.log("请求失败")
+				console.log(res)
+			}
+		})
+	})
+</script>
+</html>

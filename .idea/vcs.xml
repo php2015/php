@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/app/wq/addons/yun_shop/vendor/hao-li/laravel-amount" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/app/wq/addons/yun_shop/vendor/liebig/cron" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/app/wq/addons/yun_shop/vendor/orangehill/iseed" vcs="Git" />
+  </component>
+</project>

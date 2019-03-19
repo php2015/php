@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.info{
+			width:360px;
+			height: 150px;
+			position: absolute;
+			left:0;
+			top:0;
+			right:0;
+			bottom:0;
+			margin:auto;
+			border:1px #c3c3c3 solid;
+			background: rgba(180,170,170,0.8);
+			text-align: center;
+			line-height: 150px;
+		}
+		.username{
+			color:red;
+			font-size: 20px;
+			font-weight: bold;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="info">
+		欢迎回来：<span class="username"></span>
+	</div>
+</body>
+<script>
+	//从cookie里面取出username
+	
+	function getCookie(name){
+		var cookieArr = document.cookie.split(";");
+		for (var i = 0; i < cookieArr.length; i++) {
+			var arr = cookieArr[i].split("=");
+			if(name == arr[0]){
+				return arr[1];
+			}
+		}
+	}
+	var username = getCookie('username');
+	document.getElementsByTagName('span')[0].innerHTML = username;
+</script>
+</html>

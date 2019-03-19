@@ -1,0 +1,1 @@
+*/1 * * * * www-data /usr/local/bin/php /data/www/addons/yun_shop/artisan cron:run >> /dev/null 2>&1

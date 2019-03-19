@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form>
+		<input type="file" id="file"><br>
+		<input type="button" id="btn" value="上传" onclick="upload()">
+	</form>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+	function upload(){
+		//formData h5新增api
+		var formData = new FormData();
+		//append(name,value) 该方法会新增加一个值到formData对象下面
+		formData.append('file',$('#file')[0].files[0])
+		$.ajax({
+			url:"upload.php",
+			type:"POST",
+			data:formData,
+			async:false,
+			contentType:false,
+			processData:false,
+			success:function(res){
+				alert(res);
+			},
+			error:function(res){
+
+			}
+
+		})
+	}
+</script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 判断，如果变量name的值是PHP，那么让div显示hello PHP，如果是java，显示hello java，如果都不是，那么让它显示 hello everyone -->
+	<h3>条件判断</h3>
+	<span>1.相等 eq</span>
+	<div>
+		{if $name eq "php"}
+			hello php.
+		{elseif $name eq "java"}
+			hello java
+		{else}
+			hello everyone
+		{/if}
+	</div>
+	<span>2.大于 gt</span>
+	<div>
+		{if $score gt 60}
+			及格
+		{else}
+			不及格，需要补考
+		{/if}
+	</div>
+	<span>3.小于 lt</span>
+	<div>
+		{if $age lt 18}
+			未成年
+		{else}
+			成年
+		{/if}
+	</div>
+	<span>4.大于等于  gte/ge</span>
+	<br>
+	<span>5.小于  lte/le</span>
+	<br>
+	<span>6.不等于 ne/neq</span>
+	<div>
+		{if $score neq 100}
+			还有上升的空间
+		{else}
+			那你很棒棒呀
+		{/if}
+	</div>
+	<br>
+	<span>7.非  not</span>
+	<div>
+		{if not $bool}
+			布尔值
+		{else}
+			哈哈哈哈
+		{/if}
+	</div>
+</body>
+<script>
+
+</script>
+</html>
